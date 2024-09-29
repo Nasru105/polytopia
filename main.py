@@ -6,6 +6,7 @@ from commands import commands
 from config import BOT_TOKEN
 
 bot = TeleBot(BOT_TOKEN)
+
 tribes = ["Xin-xi", "Imperius", "Bardur", "Oumaji", "Kickoo", "Hoodrick", "Luxidoor", "Vengir", "Zebasi", "ΑΜi-Mο",
           "Quetzali", "Yadakk",
           "Aquarion", "Elyrion", "Polaris", "Cymanti"]
