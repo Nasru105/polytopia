@@ -1,11 +1,13 @@
+import os
 import random
 
 from telebot import TeleBot
-
 from commands import commands
-from config import BOT_TOKEN
 
-bot = TeleBot(BOT_TOKEN)
+
+TOKEN = os.getenv('TOKEN')
+
+bot = TeleBot(TOKEN)
 
 tribes = ["Xin-xi", "Imperius", "Bardur", "Oumaji", "Kickoo", "Hoodrick", "Luxidoor", "Vengir", "Zebasi", "ΑΜi-Mο",
           "Quetzali", "Yadakk",
@@ -21,6 +23,7 @@ def config_game(message):
     bot.send_message(message.chat.id, "Введите количество игроков")
     bot.register_next_step_handler(message, get_player_count)
 
+
 def get_player_count(message):
     try:
         count_of_players = int(message.text)
@@ -35,6 +38,7 @@ def get_player_count(message):
     except ValueError:
         bot.send_message(message.chat.id, "Пожалуйста, введите число.")
         bot.register_next_step_handler(message, get_player_count)  # Повторная попытка
+
 
 if __name__ == "__main__":
     bot.set_my_commands(commands)
